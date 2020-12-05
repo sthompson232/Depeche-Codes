@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "c:\\Users\\Sam\\Documents\\GitHub\\Depechecodes.co.uk\\depechecodes.co.uk\\Scripts\\python.exe",
+    "python.pythonPath": "C:\\Users\\Sam\\anaconda3\\python.exe",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
 }
