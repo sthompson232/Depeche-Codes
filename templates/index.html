@@ -1,48 +1,120 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
-    <h1>INDEX PAGE</h1>
+
+<div class="container">
+
+    <!-- TITLE -->
+    
+    <div>
+        <h1>Sam Thompson</h1>
+    </div>
+
+    <!-- WELCOME MESSAGE -->
+
+    <div class="container-fluid padding">
+        <div class="row welcome text-center">
+            <div class="col-12">
+                <h2 class="display-4">Welcome</h2>
+            </div>
+            <hr>
+
+            <!-- DESCRIPTION -->
+            <div class="col-12">
+                <p class="lead">This site has all my portfolio stuff</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FILTER PROJECTS FORM -->
+
+    <form method="POST">
+        <p>Filter the projects to show only those that have the following things:</p>
+        {{ filter_form.hidden_tag() }}
+        {{ filter_form.python_field.label }}
+        {{ filter_form.python_field }}
+        <br>
+        {{ filter_form.flask_field.label }}
+        {{ filter_form.flask_field }}
+        <br>
+        {{ filter_form.django_field.label }}
+        {{ filter_form.django_field }}
+        <br>
+        {{ filter_form.sql_field.label }}
+        {{ filter_form.sql_field }}
+        <br>
+        {{ filter_form.csv_field.label }}
+        {{ filter_form.csv_field }}
+        <br>
+        {{ filter_form.search }}
+    </form>
+
+    <!-- LIST OF PROJECT TITLE -->
+
+    <div class="container-fluid padding">
+        <div class="row welcome text-center">
+            <div class="col-12">
+                <h2>LIST OF PROJECTS</h2>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <!-- PROJECT CARDS -->
+
+    <!-- FILTERED LIST -->
+
+    {% if filter_form.search.data %}
+        {% if filtered_projects | length > 0 %}
+        {% for project in filtered_projects %}
+        <div class="container-fluid padding">
+            <div class="row padding">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
+                            <p class="card-text">Description</p>
+                        </div>
+                        <img class="card-img" src="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- NO FILTER RESULTS -->
+
+        {% else %}
+            <p>Looks like there are no projects matching your tags</p>
+        {% endif %}
+        {% else %}
+
+
+        <!-- UNFILTERED LIST -->
+
+        {% for project in unfiltered_projects %}
+        <div class="container-fluid padding">
+            <div class="row padding">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
+                            <p class="card-text">Description</p>
+                        </div>
+                        <img class="card-img" src="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+    <!-- UNDERLINE -->
+
+    <div>
+        <hr class="my-4">
+    </div>
+
 </div>
-<p>Welcome!</p>
-
-<form method="POST">
-    <p>Filter the projects to show only those that have the following things:</p>
-    {{ filter_form.hidden_tag() }}
-    {{ filter_form.python_field.label }}
-    {{ filter_form.python_field }}
-    <br>
-    {{ filter_form.flask_field.label }}
-    {{ filter_form.flask_field }}
-    <br>
-    {{ filter_form.django_field.label }}
-    {{ filter_form.django_field }}
-    <br>
-    {{ filter_form.sql_field.label }}
-    {{ filter_form.sql_field }}
-    <br>
-    {{ filter_form.csv_field.label }}
-    {{ filter_form.csv_field }}
-    <br>
-    {{ filter_form.search }}
-</form>
-
-<h2>LIST OF PROJECTS</h2>
-{% if filter_form.search.data %}
-<ul>
-    {% if filtered_projects | length > 0 %}
-    {% for project in filtered_projects %}
-    <li><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></li>
-    {% endfor %}
-    {% else %}
-    <p>Looks like there are no projects matching your tags</p>
-    {% endif %}
-</ul>
-{% else %}
-<ul>
-    {% for project in unfiltered_projects %}
-    <li><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></li>
-    {% endfor %}
-</ul>
-{% endif %}
 {% endblock %}

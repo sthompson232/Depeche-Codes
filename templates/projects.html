@@ -1,16 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ project_name | upper }}</h1>
-<h3>Description</h3>
-<p>{{ description }}</p>
-<p>This project was created on {{ date_created }}</p>
-<h3>Tags</h3>
-<p>{{ tags }}</p>
-<h3>Goals</h3>
-<ul>
-{% for goal in goals %}
-<li>{{ goal }}</li>
-{% endfor %}
-</ul>
+<div class="container-fluid">
+    <h1>{{ name }}</h1>
+    <h3>Description</h3>
+    <p>{{ description }}</p>
+    <p>This project was created on {{ date_created }}</p>
+    <h3>Tags</h3>
+    <p>{{ tags }}</p>
+    <h3>Goals</h3>
+    <ul>
+        {% for goal in goals %}
+        <li>{{ goal }}</li>
+        {% endfor %}
+    </ul>
+    <div class="row jumbotron">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+            <p class="lead">If you would like to visit this website, please click here.</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+            <a href=""><button type="button" class="btn btn-outline-secondary btn-lg">GO</button></a>
+        </div>
+    </div>
+</div>
 {% endblock %}
