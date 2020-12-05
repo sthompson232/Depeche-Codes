@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ project_name | upper }}</h1>
+<h3>Description</h3>
+<p>{{ description }}</p>
+<p>This project was created on {{ date_created }}</p>
+<h3>Tags</h3>
+<p>{{ tags }}</p>
+<h3>Goals</h3>
+<ul>
+{% for goal in goals %}
+<li>{{ goal }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>INDEX PAGE</h1>
+<p>Welcome!</p>
+
+<form method="POST">
+    <p>Filter the projects to show only those that have the following things:</p>
+    {{ filter_form.hidden_tag() }}
+    {{ filter_form.python_field.label }}
+    {{ filter_form.python_field }}
+    <br>
+    {{ filter_form.flask_field.label }}
+    {{ filter_form.flask_field }}
+    <br>
+    {{ filter_form.django_field.label }}
+    {{ filter_form.django_field }}
+    <br>
+    {{ filter_form.sql_field.label }}
+    {{ filter_form.sql_field }}
+    <br>
+    {{ filter_form.csv_field.label }}
+    {{ filter_form.csv_field }}
+    <br>
+    {{ filter_form.search }}
+</form>
+
+<h2>LIST OF PROJECTS</h2>
+{% if filter_form.search.data %}
+<ul>
+    {% if filtered_projects | length > 0 %}
+    {% for project in filtered_projects %}
+    <li><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></li>
+    {% endfor %}
+    {% else %}
+    <p>Looks like there are no projects matching your tags</p>
+    {% endif %}
+</ul>
+{% else %}
+<ul>
+    {% for project in unfiltered_projects %}
+    <li><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
