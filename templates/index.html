@@ -65,23 +65,22 @@
 
     <!-- FILTERED LIST -->
 
-    {% if filter_form.search.data %}
-        {% if filtered_projects | length > 0 %}
-        {% for project in filtered_projects %}
-        <div class="container-fluid padding">
-            <div class="row padding">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
-                            <p class="card-text">Description</p>
+    <div class="container-fluid padding">
+        <div class="row padding">
+        {% if filter_form.search.data %}
+            {% if filtered_projects | length > 0 %}
+            {% for project in filtered_projects %}
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
+                                <p class="card-text">Description</p>
+                            </div>
+                            <img class="card-img" src="">
                         </div>
-                        <img class="card-img" src="">
                     </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
 
         <!-- NO FILTER RESULTS -->
 
@@ -90,12 +89,16 @@
         {% endif %}
         {% else %}
 
+        </div>
+    </div>
 
         <!-- UNFILTERED LIST -->
 
+    <div class="container-fluid padding">
+        <div class="row padding">
+
         {% for project in unfiltered_projects %}
-        <div class="container-fluid padding">
-            <div class="row padding">
+
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
@@ -105,10 +108,11 @@
                         <img class="card-img" src="">
                     </div>
                 </div>
-            </div>
-        </div>
         {% endfor %}
         {% endif %}
+        
+        </div>
+    </div>
 
     <!-- UNDERLINE -->
 
