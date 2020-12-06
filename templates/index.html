@@ -2,123 +2,152 @@
 
 {% block content %}
 
-<div class="container">
 
-    <!-- TITLE -->
-    
-    <div>
-        <h1>Sam Thompson</h1>
-    </div>
 
-    <!-- WELCOME MESSAGE -->
-
-    <div class="container-fluid padding">
-        <div class="row welcome text-center">
-            <div class="col-12">
-                <h2 class="display-4">Welcome</h2>
+<!-- WELCOME MESSAGE -->
+<div class="view" style="background-image: url(../static/images/pawel-czerwinski-ISgDx2aOAB8-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="mask rgba-gradient align-items-center">
+        <div class="container padding" style="padding-top: 100px;">
+            <div class="row welcome text-center text-white">
+                <div class="col-12">
+                    <br>
+                    <h1 class="display-4">Sam Thompson</h1>
+                </div>
+                <hr>
             </div>
-            <hr>
-
+            <br>
+            <br>
+            <br>
             <!-- DESCRIPTION -->
             <div class="col-12">
-                <p class="lead">This site has all my portfolio stuff</p>
+                <p class="lead text-center text-white">Python specialist and back-end web developer</p>
             </div>
-
+            <br>
+            <br>
+            <br>
+            <br>
         </div>
     </div>
+</div>
 
-    <!-- FILTER PROJECTS FORM -->
+<div class="container-fluid">
+    <div class="row jumbotron">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+            <p class="lead">Welcome to my portfolio website, below you can filter through my projects based on different tags. Alternateively you can view my profile by clicking the button!</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+            <a href="{{ url_for('profile') }}"><button type="button" class="btn btn-outline-secondary btn-lg">My Profile</button></a>
+        </div>
+    </div>
+</div>
 
-    <form method="POST">
-        <p>Filter the projects to show only those that have the following things:</p>
-        {{ filter_form.hidden_tag() }}
-        {{ filter_form.python_field.label }}
-        {{ filter_form.python_field }}
-        <br>
-        {{ filter_form.flask_field.label }}
-        {{ filter_form.flask_field }}
-        <br>
-        {{ filter_form.django_field.label }}
-        {{ filter_form.django_field }}
-        <br>
-        {{ filter_form.sql_field.label }}
-        {{ filter_form.sql_field }}
-        <br>
-        {{ filter_form.csv_field.label }}
-        {{ filter_form.csv_field }}
-        <br>
-        {{ filter_form.search }}
-    </form>
 
-    <!-- LIST OF PROJECT TITLE -->
+<!-- LIST OF PROJECT TITLE -->
 
-    <div class="container-fluid padding">
-        <div class="row welcome text-center">
-            <div class="col-12">
-                <h2>LIST OF PROJECTS</h2>
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h2>My Projects</h2>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<!-- UNDERLINE -->
+
+<div>
+    <hr class="my-4">
+</div>
+
+<!-- FILTER PROJECTS FORM -->
+
+<form method="POST">
+    <div class="container padding">
+        <div class="row">
+            {{ filter_form.hidden_tag() }}
+            <div class="col-sm">
+            {{ filter_form.python_field.label }}
+            {{ filter_form.python_field }}
             </div>
-            <hr>
+            <br>
+            <div class="col-sm">
+            {{ filter_form.flask_field.label }}
+            {{ filter_form.flask_field }}
+            </div>
+            <br>
+            <div class="col-sm">
+            {{ filter_form.django_field.label }}
+            {{ filter_form.django_field }}
+            </div>
+            <br>
+            <div class="col-sm">
+            {{ filter_form.sql_field.label }}
+            {{ filter_form.sql_field }}
+            </div>
+            <br>
+            <div class="col-sm">
+            {{ filter_form.csv_field.label }}
+            {{ filter_form.csv_field }}
+            </div>
+            <br>
+            <div class="col-sm">
+            {{ filter_form.search }}
+            </div>   
         </div>
     </div>
+</form>
+<!-- PROJECT CARDS -->
 
-    <!-- PROJECT CARDS -->
+<!-- FILTERED LIST -->
 
-    <!-- FILTERED LIST -->
-
-    <div class="container-fluid padding">
-        <div class="row padding">
-        {% if filter_form.search.data %}
-            {% if filtered_projects | length > 0 %}
-            {% for project in filtered_projects %}
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
-                                <p class="card-text">Description</p>
-                            </div>
-                            <img class="card-img" src="">
-                        </div>
-                    </div>
-            {% endfor %}
-
-        <!-- NO FILTER RESULTS -->
-
-        {% else %}
-            <p>Looks like there are no projects matching your tags</p>
-        {% endif %}
-        {% else %}
-
-        </div>
-    </div>
-
-        <!-- UNFILTERED LIST -->
-
-    <div class="container-fluid padding">
-        <div class="row padding">
-
-        {% for project in unfiltered_projects %}
+<div class="container-fluid padding">
+    <div class="row padding">
+    {% if filter_form.search.data %}
+        {% if filtered_projects | length > 0 %}
+        {% for project in filtered_projects %}
 
                 <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
-                            <p class="card-text">Description</p>
+                    <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-WSIPINCp5eQ-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+                        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                            <div class="card-body">
+                                <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
+                                <p class="card-text">Description</p>
+                            </div>
                         </div>
-                        <img class="card-img" src="">
                     </div>
                 </div>
         {% endfor %}
-        {% endif %}
-        
+
+    <!-- NO FILTER RESULTS -->
+
+    {% else %}
+        <p>Looks like there are no projects matching your tags</p>
+    {% endif %}
+    {% else %}
+
+    </div>
+</div>
+
+    <!-- UNFILTERED LIST -->
+
+<div class="row padding">
+
+{% for project in unfiltered_projects %}
+
+<div class="col-md-4">
+    <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-WSIPINCp5eQ-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+            <div class="card-body">
+                <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
+                <p class="card-text">Description</p>
+            </div>
         </div>
     </div>
+</div>
 
-    <!-- UNDERLINE -->
-
-    <div>
-        <hr class="my-4">
-    </div>
+{% endfor %}
+{% endif %}
 
 </div>
+
 {% endblock %}
