@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import SubmitField, BooleanField
 from wtforms.validators import DataRequired
 from wtforms.fields.html5 import DateField
-from helper import descriptions, dates, tags, goals, names
+from helper import descriptions, dates, tags, goals, names, github_links
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '4w3yjcf7t8w9eovc5we'
@@ -25,7 +25,7 @@ class ProjectFilter(FlaskForm):
 @app.route('/', methods=["GET", "POST"])
 def index():
 
-    unfiltered_projects = ["Eisenhower's Quadrant", "Depeche House", "Depeche Codes", "UNFILTERED LIST"]
+    unfiltered_projects = ["eisenhowersquadrant", "depechehouse", "depechecodes", "UNFILTERED LIST"]
     filtered_projects = []
 
     filter_form = ProjectFilter()
@@ -53,9 +53,9 @@ def index():
     if filter_form.search.data and len(selected_tags) != 0:
         
         projects = [
-            {id: 1, "name": "Eisenhower's Quadrant", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": True}, 
-            {id: 2, "name": "Depeche House", "Python": True, "Flask": True, "Django": False, "SQL": True, "CSV": False},
-            {id: 3, "name": "Depeche Codes", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": False}
+            {id: 1, "display_name": "Eisenhower's Quadrant", "name": "eisenhowersquadrant", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": True}, 
+            {id: 2, "display_name": "Depeche House", "name": "depechehouse", "Python": True, "Flask": True, "Django": False, "SQL": True, "CSV": False},
+            {id: 3, "display_name": "Depeche Codes", "name": "depechecodes", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": False}
             ]
 
         for project in projects:
@@ -79,7 +79,7 @@ def index():
 @app.route('/project/<project_name>')
 def project(project_name):
 
-    return render_template("projects.html", project_name=project_name, name=names[project_name], description=descriptions[project_name], date_created=dates[project_name], tags=tags[project_name], goals=goals[project_name])
+    return render_template("projects.html", project_name=project_name, name=names[project_name], description=descriptions[project_name], date_created=dates[project_name], tags=tags[project_name], goals=goals[project_name], github_link=github_links[project_name])
 
 
 
