@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import SubmitField, BooleanField
 from wtforms.validators import DataRequired
 from wtforms.fields.html5 import DateField
-from helper import descriptions, dates, tags, goals, names, github_links
+from helper import descriptions, dates, tags, goals, names, github_links, project_links
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '4w3yjcf7t8w9eovc5we'
@@ -79,7 +79,7 @@ def index():
 @app.route('/project/<project_name>')
 def project(project_name):
 
-    return render_template("projects.html", project_name=project_name, name=names[project_name], description=descriptions[project_name], date_created=dates[project_name], tags=tags[project_name], goals=goals[project_name], github_link=github_links[project_name])
+    return render_template("projects.html", project_name=project_name, name=names[project_name], description=descriptions[project_name], date_created=dates[project_name], tags=tags[project_name], goals=goals[project_name], github_link=github_links[project_name], project_link=project_links[project_name])
 
 
 

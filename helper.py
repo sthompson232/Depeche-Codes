@@ -8,4 +8,6 @@ tags = {"eisenhowersquadrant": "Python, Flask, CSV Files", "depechehouse": "Pyth
 
 goals = {"eisenhowersquadrant": ["To create my first flask app", "Learn how to read and write to CSV files before I learn SQL"], "depechehouse": ["Create a flask app with an SQL database", "Add authentication to the website", "Use the package format for the flask app", "Users can create accounts with different permissions."], "depechecodes":["A simple flask app to feature my work", "Learn basic front-end techniques using bootstrap"],}
 
-github_links = {"eisenhowersquadrant": "https://github.com/Sam-Ian/Eisenhowers-Quadrant/tree/main", "depechehouse": "https://github.com/Sam-Ian/Depeche-House/tree/master", "depechecodes": "https://github.com/Sam-Ian/Depeche-Codes.git"}
+github_links = {"eisenhowersquadrant": "https://github.com/Sam-Ian/Eisenhowers-Quadrant/", "depechehouse": "https://github.com/Sam-Ian/Depeche-House/", "depechecodes": "https://github.com/Sam-Ian/Depeche-Codes"}
+
+project_links = {"eisenhowersquadrant": "https://eisenhowersquadrant.herokuapp.com/", "depechehouse": ""}
