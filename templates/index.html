@@ -121,7 +121,10 @@
     <!-- NO FILTER RESULTS -->
 
     {% else %}
-        <p>Looks like there are no projects matching your tags</p>
+    <div class="container padding">
+        <br>
+        <p>Sorry, looks like there are no projects matching your selected tags... yet!</p>
+    </div>
     {% endif %}
     {% else %}
 
@@ -139,7 +142,6 @@
         <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
             <div class="card-body">
                 <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
-                <p class="card-text">Description</p>
             </div>
         </div>
     </div>
