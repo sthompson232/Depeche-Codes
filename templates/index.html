@@ -13,7 +13,9 @@
                     <br>
                     <h1 class="display-4">Sam Thompson</h1>
                 </div>
-                <hr>
+                <div class="col-12">
+                    <p class="text-center text-white"><i>A place to enjoy the silence</i></p>
+                </div>
             </div>
             <br>
             <br>
@@ -101,25 +103,38 @@
 
 <!-- FILTERED LIST -->
 
-<div class="container-fluid padding">
-    <div class="row padding">
-    {% if filter_form.search.data %}
-        {% if filtered_projects | length > 0 %}
-        {% for project in filtered_projects %}
 
-                <div class="col-md-4">
-                    <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-WSIPINCp5eQ-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-                        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-                            <div class="card-body">
-                                <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
-                                <p class="card-text">{{ brief_desc[project] }}</p>
-                            </div>
-                        </div>
-                    </div>
+<div class="row padding">
+{% if filter_form.search.data %}
+    {% if filtered_projects | length > 0 %}
+    {% for project in filtered_projects %}
+
+    <div class="col-md-4 py-3">
+
+        <!-- SELECTING CORRECT BACKGROUND IMAGE -->
+        {% if names[project] == "Eisenhower's Quadrant" %}
+        <div class="card card-image" style="background-image: url(../static/images/quadrants.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% elif names[project] == "Depeche Codes" %}
+        <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-ISgDx2aOAB8-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% elif names[project] == "Depeche House" %}
+        <div class="card card-image" style="background-image: url(../static/images/house.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% elif names[project] == "Mileage Calculator" %}
+        <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% else %}
+        <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% endif %}  
+
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                <div class="card-body">
+                    <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
+                    <p class="card-text">{{ brief_desc[project] }}</p>
                 </div>
-        {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 
-    <!-- NO FILTER RESULTS -->
+<!-- NO FILTER RESULTS -->
 
     {% else %}
     <div class="container padding">
@@ -129,8 +144,8 @@
     {% endif %}
     {% else %}
 
-    </div>
 </div>
+
 
     <!-- UNFILTERED LIST -->
 
@@ -138,15 +153,30 @@
 
 {% for project in unfiltered_projects %}
 
-<div class="col-md-4">
-    <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-WSIPINCp5eQ-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-            <div class="card-body">
-                <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
+    <div class="col-md-4 py-3">
+        
+        <!-- SELECTING CORRECT BACKGROUND IMAGE -->
+        {% if names[project] == "Eisenhower's Quadrant" %}
+        <div class="card card-image" style="background-image: url(../static/images/quadrants.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% elif names[project] == "Depeche Codes" %}
+        <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-ISgDx2aOAB8-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% elif names[project] == "Depeche House" %}
+        <div class="card card-image" style="background-image: url(../static/images/house.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% elif names[project] == "Mileage Calculator" %}
+        <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% else %}
+        <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        {% endif %}  
+
+        <!-- CHANGING TITLE AND BRIEF DESCRIPTION OF EACH PROJECT -->
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                <div class="card-body">
+                    <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
+                    <p class="card-text">{{ brief_desc[project] }}</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 {% endfor %}
 {% endif %}
@@ -154,3 +184,4 @@
 </div>
 
 {% endblock %}
+
