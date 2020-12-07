@@ -33,7 +33,7 @@
 <div class="container-fluid">
     <div class="row jumbotron">
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-            <p class="lead">Welcome to my portfolio website, below you can filter through my projects based on different tags. Alternateively you can view my profile by clicking the button!</p>
+            <p class="lead">Welcome to my portfolio website, below you can filter through my projects based on different tags. Alternatively you can view my profile by clicking the button!</p>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
             <a href="{{ url_for('profile') }}"><button type="button" class="btn btn-outline-secondary btn-lg">My Profile</button></a>
@@ -96,6 +96,7 @@
         </div>
     </div>
 </form>
+<br>
 <!-- PROJECT CARDS -->
 
 <!-- FILTERED LIST -->
@@ -110,8 +111,8 @@
                     <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-WSIPINCp5eQ-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
                         <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                             <div class="card-body">
-                                <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
-                                <p class="card-text">Description</p>
+                                <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
+                                <p class="card-text">{{ brief_desc[project] }}</p>
                             </div>
                         </div>
                     </div>
@@ -141,7 +142,7 @@
     <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-WSIPINCp5eQ-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
             <div class="card-body">
-                <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ project }}</a></h4>
+                <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
             </div>
         </div>
     </div>

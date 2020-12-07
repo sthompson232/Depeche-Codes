@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import SubmitField, BooleanField
 from wtforms.validators import DataRequired
 from wtforms.fields.html5 import DateField
-from helper import descriptions, dates, tags, goals, names, github_links, project_links
+from helper import descriptions, dates, tags, goals, names, github_links, project_links, brief_desc
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '4w3yjcf7t8w9eovc5we'
@@ -25,7 +25,7 @@ class ProjectFilter(FlaskForm):
 @app.route('/', methods=["GET", "POST"])
 def index():
 
-    unfiltered_projects = ["eisenhowersquadrant", "depechehouse", "depechecodes", "UNFILTERED LIST"]
+    unfiltered_projects = ["eisenhowersquadrant", "depechehouse", "depechecodes", "mileagecalculator"]
     filtered_projects = []
 
     filter_form = ProjectFilter()
@@ -55,7 +55,8 @@ def index():
         projects = [
             {id: 1, "display_name": "Eisenhower's Quadrant", "name": "eisenhowersquadrant", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": True}, 
             {id: 2, "display_name": "Depeche House", "name": "depechehouse", "Python": True, "Flask": True, "Django": False, "SQL": True, "CSV": False},
-            {id: 3, "display_name": "Depeche Codes", "name": "depechecodes", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": False}
+            {id: 3, "display_name": "Depeche Codes", "name": "depechecodes", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": False},
+            {id: 4, "display_name": "Mileage Calculator", "name": "mileagecalculator", "Python": True, "Flask": False, "Django": False, "SQL": False, "CSV": True}
             ]
 
         for project in projects:
@@ -72,7 +73,7 @@ def index():
     else:
         filtered_projects = unfiltered_projects
 
-    return render_template("index.html", filter_form=filter_form, filtered_projects=filtered_projects, unfiltered_projects=unfiltered_projects)
+    return render_template("index.html", filter_form=filter_form, filtered_projects=filtered_projects, unfiltered_projects=unfiltered_projects, names=names, brief_desc=brief_desc)
 
 
 
