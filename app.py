@@ -6,9 +6,11 @@ from wtforms.validators import DataRequired
 from wtforms.fields.html5 import DateField
 from helper import descriptions, dates, tags, goals, names, github_links, project_links, brief_desc
 
+#CREATE THE NAME OF THE APP
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '4w3yjcf7t8w9eovc5we'
 
+#CREATING A FORM WHICH IS INHERITING FROM FLASKFORM. THIS WILL BE THE FILTER FORM
 class ProjectFilter(FlaskForm):
     python_field = BooleanField("Python")
     flask_field = BooleanField("Flask")
@@ -25,19 +27,22 @@ class ProjectFilter(FlaskForm):
 @app.route('/', methods=["GET", "POST"])
 def index():
 
+    #THE UNFILTERED PROJECTS LIST WILL BE THE LIST OF PROJECTS YOU INITIALLY SEE DISPLAYED WHEN YOU FIRST GO TO THE WEBSITE
     unfiltered_projects = ["eisenhowersquadrant", "depechehouse", "depechecodes", "mileagecalculator"]
+    #FILTERED PROJECTS WILL BE USED AS SOON AS THE FILTER FORM IS SUBMITTED
     filtered_projects = []
-
+    #CREATING AN INSTANCE OF THE FORM
     filter_form = ProjectFilter()
-  
+    #VARIABLES THAT ARE A BOOLEAN VALUE OF THE FORM DATA
     python_bool = filter_form.python_field.data
     flask_bool = filter_form.flask_field.data
     django_bool = filter_form.django_field.data
     sql_bool = filter_form.sql_field.data
     csv_bool = filter_form.csv_field.data
 
+    #A LIST WILL BE CREATED OF THE TAGS THAT WERE SELECTED
     selected_tags = []
-
+    #IF A CHECKBOX WAS SELECTED THE BOOL VALUE WILL BE TRUE, THUS ADDING ITS TAG TO THE LIST
     if python_bool:
         selected_tags.append("Python")
     if flask_bool:
@@ -51,7 +56,7 @@ def index():
 
     #FILTER FORM
     if filter_form.search.data and len(selected_tags) != 0:
-        
+        #DICTIONARY OF PROJECTS WITH THEIR CORESPONDING TAGS
         projects = [
             {id: 1, "display_name": "Eisenhower's Quadrant", "name": "eisenhowersquadrant", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": True}, 
             {id: 2, "display_name": "Depeche House", "name": "depechehouse", "Python": True, "Flask": True, "Django": False, "SQL": True, "CSV": False},
@@ -59,6 +64,7 @@ def index():
             {id: 4, "display_name": "Mileage Calculator", "name": "mileagecalculator", "Python": True, "Flask": False, "Django": False, "SQL": False, "CSV": True}
             ]
 
+        #ITERATE THROUGH PROJECTS DICTIONARY, IF ALL SELECTED TAGS ARE TRUE IN ONE OF THE PROJECTS IN THE DICTIONARY, THE PROJECT NAME WILL BE ADDED TO THE FILTERED_PROJECTS LIST 
         for project in projects:
             truth_checker = []
             for selected_tag in selected_tags:
@@ -76,7 +82,7 @@ def index():
     return render_template("index.html", filter_form=filter_form, filtered_projects=filtered_projects, unfiltered_projects=unfiltered_projects, names=names, brief_desc=brief_desc)
 
 
-
+#THIS WILL TAKE YOU TO DIFFERENT PAGES DEPENDING ON THE PROJECT_NAME. 
 @app.route('/project/<project_name>')
 def project(project_name):
 

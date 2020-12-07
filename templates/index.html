@@ -4,10 +4,11 @@
 
 
 
-<!-- WELCOME MESSAGE -->
+<!-- BACKGROUND IMAGE -->
 <div class="view" style="background-image: url(../static/images/pawel-czerwinski-ISgDx2aOAB8-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <div class="mask rgba-gradient align-items-center">
         <div class="container padding" style="padding-top: 100px;">
+            <!-- MY NAME TEXT -->
             <div class="row welcome text-center text-white">
                 <div class="col-12">
                     <br>
@@ -32,6 +33,7 @@
     </div>
 </div>
 
+<!-- JUMBOTRON SECTION -->
 <div class="container-fluid">
     <div class="row jumbotron">
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
@@ -127,7 +129,7 @@
             {% else %}
             <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
             {% endif %}  
-
+                <!-- ONCE BACKGROUND IMAGE IF STATEMENT FINISHED, NAME AND BRIEF DESCRIPTION SECTION FOR CARDS -->
                 <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                     <div class="card-body">
                         <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
@@ -152,7 +154,7 @@
 </div>
 
 
-    <!-- UNFILTERED LIST -->
+    <!-- UNFILTERED LIST SECTION-->
 <div class="container">
     <div class="row padding">
 

@@ -1,3 +1,5 @@
+#THIS PAGE HAS ALL OF THE DIFFERENT INFORMATION FOR EACH OF THE PROJECTS IN PYTHON DICTIONARIES. THIS INFORMATION WILL BE USED MOSTLY IN THE PROJECTS.HTML TEMPLATE
+
 names = {
     "eisenhowersquadrant": "Eisenhower's Quadrant", 
     "depechehouse": "Depeche House", 
@@ -42,7 +44,7 @@ goals = {
     "depechehouse": ["Create a flask app with an SQL database", "Add authentication to the website", "Use the package format for the flask app", "Users can create accounts with different permissions."], 
 
     "depechecodes":["A simple flask app to feature my work", "Learn to use bootstrap", "Push my knowledge of Front-end web development", "Ultimately showcase my projects in an user-friendly environment!"], 
-    
+
     "mileagecalculator": ["Putting my knowledge of Python into practice for the first time", "Learning to use the terminal", "Reading and writing to CSV", "Create my first project in Python!"]
     }
 

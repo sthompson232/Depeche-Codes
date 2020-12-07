@@ -1,3 +1,4 @@
+<!-- THIS DOCUMENT IS THE BASE TEMPLATE FOR ALL OF THE OTHER HTML FILES -->
 <!doctype html>
 
 <html lang="en">
@@ -14,8 +15,10 @@
 </head>
 
 <body>
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
+      <!-- PAGE TITLE ON NAVBAR -->
       <div class="navbar-brand">
         <h1><a href="{{ url_for('index') }}" style="color: inherit;">Depeche Codes</a></h1>
       </div>
@@ -24,16 +27,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <!-- DROPDOWN BOX -->
           <div class="dropdown px-4">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Projects
             </button>
+            <!-- EACH INSTANCE IN THE DROPDOWN MENU -->
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="{{ url_for('project', project_name='eisenhowersquadrant') }}">Eisenhower's Quadrant</a>
               <a class="dropdown-item" href="{{ url_for('project', project_name='depechehouse') }}">Depeche House</a>
               <a class="dropdown-item" href="{{ url_for('project', project_name='depechecodes') }}">Depeche Codes</a>
               <a class="dropdown-item" href="{{ url_for('project', project_name='mileagecalculator') }}">Mileage Calculator</a>
             </div>
+            <!-- SEPERATE LINKS FOR HOME AND PROFILE PAGE -->
           </div>
           <li class="nav-item px-4">
             <a class="nav-link" href="{{ url_for('index') }}">Home</a>
@@ -45,14 +51,17 @@
       </div>
     </div>
   </nav>
+  <!-- OTHER PAGE CONTENT WILL GO HERE -->
   {% block content %}
   {% endblock %}
   <br>
   <br>
+  <!-- FOOTER -->
   <footer class="footer fixed-bottom" style="background-color:white">
     <div class="container-fluid padding">
       <div class="row text-center padding">
         <div class="col-4">
+          <!-- LINK TO THE WEBSITE -->
           <p><i>http://depechecodes.co.uk/</i></p>
         </div>
         <div class="col-4">
