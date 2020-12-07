@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import SubmitField, BooleanField
 from wtforms.validators import DataRequired
 from wtforms.fields.html5 import DateField
-from helper import descriptions, dates, tags, goals, names, github_links, project_links, brief_desc, project_images
+from helper import descriptions, dates, tags, goals, names, github_links, project_links, brief_desc
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '4w3yjcf7t8w9eovc5we'
@@ -73,7 +73,7 @@ def index():
     else:
         filtered_projects = unfiltered_projects
 
-    return render_template("index.html", filter_form=filter_form, filtered_projects=filtered_projects, unfiltered_projects=unfiltered_projects, names=names, brief_desc=brief_desc, project_images=project_images)
+    return render_template("index.html", filter_form=filter_form, filtered_projects=filtered_projects, unfiltered_projects=unfiltered_projects, names=names, brief_desc=brief_desc)
 
 
 

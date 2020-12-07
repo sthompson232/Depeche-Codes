@@ -56,7 +56,6 @@
 </div>
 
 <!-- UNDERLINE -->
-
 <div>
     <hr class="my-4">
 </div>
@@ -98,42 +97,48 @@
         </div>
     </div>
 </form>
-<br>
+
+<!-- UNDERLINE -->
+<div>
+    <hr class="my-4">
+</div>
+
 <!-- PROJECT CARDS -->
 
 <!-- FILTERED LIST -->
 
+<div class="container">
+    <div class="row padding">
+    {% if filter_form.search.data %}
+        {% if filtered_projects | length > 0 %}
+        {% for project in filtered_projects %}
 
-<div class="row padding">
-{% if filter_form.search.data %}
-    {% if filtered_projects | length > 0 %}
-    {% for project in filtered_projects %}
+        <div class="col-md-4 py-3 align-items-stretch">
 
-    <div class="col-md-4 py-3">
+            <!-- SELECTING CORRECT BACKGROUND IMAGE -->
+            {% if names[project] == "Eisenhower's Quadrant" %}
+            <div class="card card-image" style="background-image: url(../static/images/quadrants.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% elif names[project] == "Depeche Codes" %}
+            <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-ISgDx2aOAB8-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% elif names[project] == "Depeche House" %}
+            <div class="card card-image" style="background-image: url(../static/images/nighthouse.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% elif names[project] == "Mileage Calculator" %}
+            <div class="card card-image" style="background-image: url(../static/images/teslatyre.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% else %}
+            <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% endif %}  
 
-        <!-- SELECTING CORRECT BACKGROUND IMAGE -->
-        {% if names[project] == "Eisenhower's Quadrant" %}
-        <div class="card card-image" style="background-image: url(../static/images/quadrants.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% elif names[project] == "Depeche Codes" %}
-        <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-ISgDx2aOAB8-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% elif names[project] == "Depeche House" %}
-        <div class="card card-image" style="background-image: url(../static/images/house.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% elif names[project] == "Mileage Calculator" %}
-        <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% else %}
-        <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% endif %}  
-
-            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-                <div class="card-body">
-                    <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
-                    <p class="card-text">{{ brief_desc[project] }}</p>
+                <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                    <div class="card-body">
+                        <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
+                        <p class="card-text">{{ brief_desc[project] }}</p>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-
+</div>
 <!-- NO FILTER RESULTS -->
 
     {% else %}
@@ -148,40 +153,40 @@
 
 
     <!-- UNFILTERED LIST -->
+<div class="container">
+    <div class="row padding">
 
-<div class="row padding">
+    {% for project in unfiltered_projects %}
 
-{% for project in unfiltered_projects %}
+        <div class="col-md-4 py-3 align-items-stretch">
+            
+            <!-- SELECTING CORRECT BACKGROUND IMAGE -->
+            {% if names[project] == "Eisenhower's Quadrant" %}
+            <div class="card card-image" style="background-image: url(../static/images/quadrants.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% elif names[project] == "Depeche Codes" %}
+            <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-ISgDx2aOAB8-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% elif names[project] == "Depeche House" %}
+            <div class="card card-image" style="background-image: url(../static/images/house.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% elif names[project] == "Mileage Calculator" %}
+            <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% else %}
+            <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            {% endif %}  
 
-    <div class="col-md-4 py-3">
-        
-        <!-- SELECTING CORRECT BACKGROUND IMAGE -->
-        {% if names[project] == "Eisenhower's Quadrant" %}
-        <div class="card card-image" style="background-image: url(../static/images/quadrants.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% elif names[project] == "Depeche Codes" %}
-        <div class="card card-image" style="background-image: url(../static/images/pawel-czerwinski-ISgDx2aOAB8-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% elif names[project] == "Depeche House" %}
-        <div class="card card-image" style="background-image: url(../static/images/house.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% elif names[project] == "Mileage Calculator" %}
-        <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% else %}
-        <div class="card card-image" style="background-image: url(../static/images/tesla.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        {% endif %}  
-
-        <!-- CHANGING TITLE AND BRIEF DESCRIPTION OF EACH PROJECT -->
-            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-                <div class="card-body">
-                    <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
-                    <p class="card-text">{{ brief_desc[project] }}</p>
+            <!-- CHANGING TITLE AND BRIEF DESCRIPTION OF EACH PROJECT -->
+                <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                    <div class="card-body">
+                        <h4 class="card-title pt-2"><a class="text-white" href="{{ url_for('project', project_name=project) }}">{{ names[project] }}</a></h4>
+                        <p class="card-text">{{ brief_desc[project] }}</p>
+                    </div>
                 </div>
             </div>
         </div>
+
+    {% endfor %}
+    {% endif %}
+
     </div>
-
-{% endfor %}
-{% endif %}
-
 </div>
-
 {% endblock %}
 
