@@ -28,7 +28,7 @@ class ProjectFilter(FlaskForm):
 def index():
 
     #THE UNFILTERED PROJECTS LIST WILL BE THE LIST OF PROJECTS YOU INITIALLY SEE DISPLAYED WHEN YOU FIRST GO TO THE WEBSITE
-    unfiltered_projects = ["eisenhowersquadrant", "depechehouse", "depechecodes", "mileagecalculator"]
+    unfiltered_projects = ["eisenhowersquadrant", "depechehouse", "depechecodes", "mileagecalculator", "djangounrestrained"]
     #FILTERED PROJECTS WILL BE USED AS SOON AS THE FILTER FORM IS SUBMITTED
     filtered_projects = []
     #CREATING AN INSTANCE OF THE FORM
@@ -61,7 +61,8 @@ def index():
             {id: 1, "display_name": "Eisenhower's Quadrant", "name": "eisenhowersquadrant", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": True}, 
             {id: 2, "display_name": "Depeche House", "name": "depechehouse", "Python": True, "Flask": True, "Django": False, "SQL": True, "CSV": False},
             {id: 3, "display_name": "Depeche Codes", "name": "depechecodes", "Python": True, "Flask": True, "Django": False, "SQL": False, "CSV": False},
-            {id: 4, "display_name": "Mileage Calculator", "name": "mileagecalculator", "Python": True, "Flask": False, "Django": False, "SQL": False, "CSV": True}
+            {id: 4, "display_name": "Mileage Calculator", "name": "mileagecalculator", "Python": True, "Flask": False, "Django": False, "SQL": False, "CSV": True},
+            {id: 5, "display_name": "Django Unrestrained", "name": "djangounrestrained", "Python": True, "Flask": False, "Django": True, "SQL": False, "CSV": False}
             ]
 
         #ITERATE THROUGH PROJECTS DICTIONARY, IF ALL SELECTED TAGS ARE TRUE IN ONE OF THE PROJECTS IN THE DICTIONARY, THE PROJECT NAME WILL BE ADDED TO THE FILTERED_PROJECTS LIST 
