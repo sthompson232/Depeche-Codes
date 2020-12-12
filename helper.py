@@ -10,7 +10,7 @@ names = {
 descriptions = {
     "eisenhowersquadrant": "Using the Eisenhower's Quadrant concept, this project allows you to organise different tasks. You are able to add, delete, and complete tasks. You are also able to see information about different tasks, for instance when they were created and when they must be finished by. This project showcases my Python coding skills in back-end web development.", 
 
-    "depechehouse": "A social app which allows users to create accounts using email, password and usernames. Users are able to post to a global feed which can be seen by all other users. Users can edit or delete only their posts, or change their profile picture, uesrname and password. This projects showcases advanced flask functions and was the first project in which I used an SQL database to store the post and user data.", 
+    "depechehouse": "A social app which allows users to create accounts using email, password and usernames. Users are able to post to a global feed which can be seen by all other users. Users can edit or delete only their posts, or change their profile picture, uesrname and password. This projects showcases advanced flask functions and was the first project in which I used an SQL database to store the post and user data. Please note that due to the nature of Heroku's dyno management, custom profile pictures will be wiped routinely, you can still upload your own to see the feature!", 
 
     "depechecodes": "This is my portfolio website, designed to feature all of my past projects. It has been designed to easily navigate through my projects with a filter function to search through projects via their related tags. This project showcases my ability with front-end design, and my knowledge of HTML and CSS.",
 
