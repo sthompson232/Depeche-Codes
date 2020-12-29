@@ -17,7 +17,7 @@ descriptions = {
 
     "mileagecalculator": "This was the first project I made. This used pure Python and could only be used in a CLI. It was designed to be used for someone who needed to calculate information about their car mileage. Enter your current car mileage into the terminal and the calculator will update your CSV file with different information. For instance average daily mileage, projected mileage and elapsed days to name a few! As well as testing my coding skills, this project also tested my maths knowledge!",
 
-    "djangounrestrained": "This project is a WIP. You can still view the Github code below!"
+    "djangounrestrained": "This project primarily focuses on analysing data and gathering data from APIs. On one page you can access different types of financial data such as the NASDAQ100 from different time periods of your choice. The information will then be displayed in a line graph. I used various libraries to do this such as matplotlib, pandas and numpy. On another page you are able to rate different films, and the ratings will be displayed on a bar chart. New ratings will overwrite old ones, and each user has access to their own ratings. I hope to revisit this project at some point."
     }
 
 brief_desc = {
@@ -53,7 +53,7 @@ goals = {
 
     "mileagecalculator": ["Putting my knowledge of Python into practice for the first time", "Learning to use the terminal", "Reading and writing to CSV", "Create my first project in Python!"],
 
-    "djangounrestrained": ["To learn the capabilities of Django", "Learn more Python modules"]
+    "djangounrestrained": ["To learn Django as this was my first Django app", "Learn Python libraries such as pandas, matplotlib and numpy", "Learn how to analyse financial data", "Go more into depth with databases for a user specific experience"]
     }
 
 github_links = {
@@ -69,5 +69,5 @@ project_links = {
     "depechehouse": "https://depechehouse.herokuapp.com/", 
     "depechecodes": "", 
     "mileagecalculator": "",
-    "djangounrestrained": ""
+    "djangounrestrained": "https://djangounrestrained.herokuapp.com/"
     }
